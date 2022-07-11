@@ -19,6 +19,7 @@ Calc::Calc(QWidget *parent)
     connect(ui->pushButton_9, SIGNAL(released()), this, SLOT(digit_pressed()));
 
     connect(ui->pushButton_plusMinus, SIGNAL(released()), this, SLOT(unary_operation_button_released()));
+    connect(ui->pushButton_percent, SIGNAL(released()), this, SLOT(unary_operation_button_released()));
 }
 
 Calc::~Calc()
@@ -56,6 +57,13 @@ void Calc::unary_operation_button_released()
     {
         labelNumber = ui->label_1->text().toDouble();
         labelNumber = labelNumber * (-1);
+        newLabel = QString::number(labelNumber, 'g', 15);
+        ui->label_1->setText(newLabel);
+    }
+    if(button->text() == '%')
+    {
+        labelNumber = ui->label_1->text().toDouble();
+        labelNumber = labelNumber * 0.01;
         newLabel = QString::number(labelNumber, 'g', 15);
         ui->label_1->setText(newLabel);
     }
