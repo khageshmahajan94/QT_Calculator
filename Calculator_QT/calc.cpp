@@ -36,3 +36,12 @@ void Calc::digit_pressed()
     ui->label_1->setText(newLabel);
 }
 
+
+void Calc::on_pushButton_decimal_released()
+{
+    if(!(ui->label_1->text().contains('.')))
+    {
+        ui->label_1->setText(ui->label_1->text() + '.');
+    }
+}
+
