@@ -17,5 +17,8 @@ public:
 
 private:
     Ui::Calc *ui;
+
+private slots:
+    void digit_pressed();
 };
 #endif // CALC_H
