@@ -17,6 +17,8 @@ Calc::Calc(QWidget *parent)
     connect(ui->pushButton_7, SIGNAL(released()), this, SLOT(digit_pressed()));
     connect(ui->pushButton_8, SIGNAL(released()), this, SLOT(digit_pressed()));
     connect(ui->pushButton_9, SIGNAL(released()), this, SLOT(digit_pressed()));
+
+    connect(ui->pushButton_plusMinus, SIGNAL(released()), this, SLOT(unary_operation_button_released()));
 }
 
 Calc::~Calc()
@@ -42,6 +44,20 @@ void Calc::on_pushButton_decimal_released()
     if(!(ui->label_1->text().contains('.')))
     {
         ui->label_1->setText(ui->label_1->text() + '.');
+    }
+}
+
+void Calc::unary_operation_button_released()
+{
+    double labelNumber;
+    QString newLabel;
+    QPushButton* button = (QPushButton*) sender();
+    if(button->text() == "+/-")
+    {
+        labelNumber = ui->label_1->text().toDouble();
+        labelNumber = labelNumber * (-1);
+        newLabel = QString::number(labelNumber, 'g', 15);
+        ui->label_1->setText(newLabel);
     }
 }
 
