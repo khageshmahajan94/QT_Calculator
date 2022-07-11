@@ -26,6 +26,13 @@ Calc::~Calc()
 
 void Calc::digit_pressed()
 {
-    qDebug() << "test";
+    QPushButton* button = (QPushButton*) sender();
+    double labelNumber;
+    QString newLabel;
+
+    labelNumber = (ui->label_1->text() + button->text()).toDouble();
+    newLabel = QString::number(labelNumber, 'g', 15);
+
+    ui->label_1->setText(newLabel);
 }
 
