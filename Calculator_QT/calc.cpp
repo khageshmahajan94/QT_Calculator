@@ -116,5 +116,34 @@ void Calc::on_pushBotton_equalTo_released()
         ui->label_1->setText(newLabel);
         ui->pushButton_addition->setChecked(false);
     }
+    if(ui->pushButton_subtract->isChecked())
+    {
+        labelNumber = firstNum - secondNum;
+        newLabel = QString::number(labelNumber, 'g', 15);
+        ui->label_1->setText(newLabel);
+        ui->pushButton_addition->setChecked(false);
+    }
+    if(ui->pushButton_multiply->isChecked())
+    {
+        labelNumber = firstNum * secondNum;
+        newLabel = QString::number(labelNumber, 'g', 15);
+        ui->label_1->setText(newLabel);
+        ui->pushButton_addition->setChecked(false);
+    }
+    if(ui->pushButton_division->isChecked())
+    {
+        if(secondNum != 0)
+        {
+            labelNumber = firstNum / secondNum;
+            newLabel = QString::number(labelNumber, 'g', 15);
+            ui->label_1->setText(newLabel);
+        }
+        else
+        {
+            ui->label_1->setText("Cannot Divide By Zero");
+        }
+
+        ui->pushButton_addition->setChecked(false);
+    }
 }
 
