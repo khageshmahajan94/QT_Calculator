@@ -151,3 +151,18 @@ void Calc::on_pushBotton_equalTo_released()
     userIsTypingSecondNum = false;
 }
 
+
+
+
+void Calc::on_pushButton_clear_released()
+{
+    ui->pushButton_addition->setChecked(false);
+    ui->pushButton_subtract->setChecked(false);
+    ui->pushButton_multiply->setChecked(false);
+    ui->pushButton_division->setChecked(false);
+
+    userIsTypingSecondNum = false;
+
+    ui->label_1->setText("0");
+}
+
