@@ -1,6 +1,8 @@
 #include "calc.h"
 #include "./ui_calc.h"
 
+double firstNum;
+
 Calc::Calc(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Calc)
@@ -20,6 +22,20 @@ Calc::Calc(QWidget *parent)
 
     connect(ui->pushButton_plusMinus, SIGNAL(released()), this, SLOT(unary_operation_button_released()));
     connect(ui->pushButton_percent, SIGNAL(released()), this, SLOT(unary_operation_button_released()));
+
+    connect(ui->pushButton_equalTo, SIGNAL(released()), this, SLOT(on_pushBotton_equalTo_released()));
+
+    connect(ui->pushButton_addition, SIGNAL(released()), this, SLOT(binary_operation_button_released()));
+    connect(ui->pushButton_subtract, SIGNAL(released()), this, SLOT(binary_operation_button_released()));
+    connect(ui->pushButton_multiply, SIGNAL(released()), this, SLOT(binary_operation_button_released()));
+    connect(ui->pushButton_division, SIGNAL(released()), this, SLOT(binary_operation_button_released()));
+
+    ui->pushButton_addition->setCheckable(true);
+    ui->pushButton_subtract->setCheckable(true);
+    ui->pushButton_multiply->setCheckable(true);
+    ui->pushButton_division->setCheckable(true);
+
+
 }
 
 Calc::~Calc()
@@ -33,7 +49,17 @@ void Calc::digit_pressed()
     double labelNumber;
     QString newLabel;
 
-    labelNumber = (ui->label_1->text() + button->text()).toDouble();
+    if(ui->pushButton_addition->isChecked() || ui->pushButton_subtract->isChecked() ||
+            ui->pushButton_multiply->isChecked() || ui->pushButton_division->isChecked())
+    {
+        labelNumber = (button->text()).toDouble();
+    }
+    else
+    {
+        labelNumber = (ui->label_1->text() + button->text()).toDouble();
+    }
+
+
     newLabel = QString::number(labelNumber, 'g', 15);
 
     ui->label_1->setText(newLabel);
@@ -66,6 +92,29 @@ void Calc::unary_operation_button_released()
         labelNumber = labelNumber * 0.01;
         newLabel = QString::number(labelNumber, 'g', 15);
         ui->label_1->setText(newLabel);
+    }
+}
+
+void Calc::binary_operation_button_released()
+{
+    QPushButton* button = (QPushButton*) sender();
+
+    firstNum = ui->label_1->text().toDouble();
+
+    button->setChecked(true);
+}
+
+void Calc::on_pushBotton_equalTo_released()
+{
+    double labelNumber, secondNum;
+    QString newLabel;
+    secondNum = ui->label_1->text().toDouble();
+    if(ui->pushButton_addition->isChecked())
+    {
+        labelNumber = firstNum + secondNum;
+        newLabel = QString::number(labelNumber, 'g', 15);
+        ui->label_1->setText(newLabel);
+        ui->pushButton_addition->setChecked(false);
     }
 }
 
