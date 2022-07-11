@@ -2,6 +2,7 @@
 #include "./ui_calc.h"
 
 double firstNum;
+bool userIsTypingSecondNum = false;
 
 Calc::Calc(QWidget *parent)
     : QMainWindow(parent)
@@ -49,10 +50,11 @@ void Calc::digit_pressed()
     double labelNumber;
     QString newLabel;
 
-    if(ui->pushButton_addition->isChecked() || ui->pushButton_subtract->isChecked() ||
-            ui->pushButton_multiply->isChecked() || ui->pushButton_division->isChecked())
+    if((ui->pushButton_addition->isChecked() || ui->pushButton_subtract->isChecked() ||
+            ui->pushButton_multiply->isChecked() || ui->pushButton_division->isChecked()) && !userIsTypingSecondNum)
     {
         labelNumber = (button->text()).toDouble();
+        userIsTypingSecondNum = true;
     }
     else
     {
@@ -145,5 +147,7 @@ void Calc::on_pushBotton_equalTo_released()
 
         ui->pushButton_addition->setChecked(false);
     }
+
+    userIsTypingSecondNum = false;
 }
 
