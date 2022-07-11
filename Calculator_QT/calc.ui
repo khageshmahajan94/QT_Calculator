@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Calc</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">border : 1px solid black;</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label_1">
     <property name="geometry">
@@ -25,9 +28,12 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>12</pointsize>
+      <pointsize>11</pointsize>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border : 1px solid gray;</string>
     </property>
     <property name="text">
      <string>0</string>
@@ -42,6 +48,16 @@
       <height>60</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border : 1px solid gray;
+border-radius : 5px;</string>
+    </property>
     <property name="text">
      <string/>
     </property>
@@ -54,6 +70,17 @@
       <width>80</width>
       <height>60</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border : 1px solid gray;
+border-radius : 5px;
+background-color : #d74242;</string>
     </property>
     <property name="text">
      <string>C</string>
@@ -68,6 +95,17 @@
       <height>60</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border : 1px solid gray;
+border-radius : 5px;
+background-color : #d7d742;</string>
+    </property>
     <property name="text">
      <string>%</string>
     </property>
@@ -80,6 +118,17 @@
       <width>80</width>
       <height>60</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border : 1px solid gray;
+border-radius : 5px;
+background-color : #d7d742;</string>
     </property>
     <property name="text">
      <string>/</string>
@@ -94,6 +143,17 @@
       <height>60</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border : 1px solid gray;
+border-radius : 5px;
+background-color : #d7d742;</string>
+    </property>
     <property name="text">
      <string>X</string>
     </property>
@@ -106,6 +166,17 @@
       <width>80</width>
       <height>60</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border : 1px solid gray;
+border-radius : 5px;
+background-color : #00ffff;</string>
     </property>
     <property name="text">
      <string>9</string>
@@ -120,6 +191,17 @@
       <height>60</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border : 1px solid gray;
+border-radius : 5px;
+background-color : #00ffff;</string>
+    </property>
     <property name="text">
      <string>7</string>
     </property>
@@ -132,6 +214,17 @@
       <width>80</width>
       <height>60</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border : 1px solid gray;
+border-radius : 5px;
+background-color : #00ffff;</string>
     </property>
     <property name="text">
      <string>8</string>
@@ -146,6 +239,17 @@
       <height>60</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border : 1px solid gray;
+border-radius : 5px;
+background-color : #d7d742;</string>
+    </property>
     <property name="text">
      <string>-</string>
     </property>
@@ -158,6 +262,17 @@
       <width>80</width>
       <height>60</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border : 1px solid gray;
+border-radius : 5px;
+background-color : #00ffff;</string>
     </property>
     <property name="text">
      <string>6</string>
@@ -172,6 +287,17 @@
       <height>60</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border : 1px solid gray;
+border-radius : 5px;
+background-color : #00ffff;</string>
+    </property>
     <property name="text">
      <string>4</string>
     </property>
@@ -184,6 +310,17 @@
       <width>80</width>
       <height>60</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border : 1px solid gray;
+border-radius : 5px;
+background-color : #00ffff;</string>
     </property>
     <property name="text">
      <string>5</string>
@@ -198,6 +335,17 @@
       <height>60</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border : 1px solid gray;
+border-radius : 5px;
+background-color : #d7d742;</string>
+    </property>
     <property name="text">
      <string>+</string>
     </property>
@@ -210,6 +358,17 @@
       <width>80</width>
       <height>60</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border : 1px solid gray;
+border-radius : 5px;
+background-color : #00ffff;</string>
     </property>
     <property name="text">
      <string>3</string>
@@ -224,6 +383,17 @@
       <height>60</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border : 1px solid gray;
+border-radius : 5px;
+background-color : #00ffff;</string>
+    </property>
     <property name="text">
      <string>1</string>
     </property>
@@ -236,6 +406,17 @@
       <width>80</width>
       <height>60</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border : 1px solid gray;
+border-radius : 5px;
+background-color : #00ffff;</string>
     </property>
     <property name="text">
      <string>2</string>
@@ -250,6 +431,17 @@
       <height>60</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border : 1px solid gray;
+border-radius : 5px;
+background-color : #d7d742;</string>
+    </property>
     <property name="text">
      <string>=</string>
     </property>
@@ -262,6 +454,17 @@
       <width>80</width>
       <height>60</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border : 1px solid gray;
+border-radius : 5px;
+background-color : #d7d742;</string>
     </property>
     <property name="text">
      <string>.</string>
@@ -276,6 +479,17 @@
       <height>60</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border : 1px solid gray;
+border-radius : 5px;
+background-color : #d7d742;</string>
+    </property>
     <property name="text">
      <string>+/-</string>
     </property>
@@ -288,6 +502,17 @@
       <width>80</width>
       <height>60</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border : 1px solid gray;
+border-radius : 5px;
+background-color : #00ffff;</string>
     </property>
     <property name="text">
      <string>0</string>
@@ -304,12 +529,21 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>12</pointsize>
+      <pointsize>14</pointsize>
       <bold>true</bold>
      </font>
     </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border : 1px solid gray;</string>
+    </property>
     <property name="text">
      <string>0</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
   </widget>
