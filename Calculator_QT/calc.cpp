@@ -55,15 +55,21 @@ void Calc::digit_pressed()
     {
         labelNumber = (button->text()).toDouble();
         userIsTypingSecondNum = true;
+        newLabel = QString::number(labelNumber, 'g', 15);
     }
     else
     {
-        labelNumber = (ui->label_1->text() + button->text()).toDouble();
+        if(ui->label_1->text().contains('.') && button->text() == "0")
+        {
+            newLabel = ui->label_1->text() + button->text();
+        }
+        else
+        {
+            labelNumber = (ui->label_1->text() + button->text()).toDouble();
+            newLabel = QString::number(labelNumber, 'g', 15);
+        }
+
     }
-
-
-    newLabel = QString::number(labelNumber, 'g', 15);
-
     ui->label_1->setText(newLabel);
 }
 

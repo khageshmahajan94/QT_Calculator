@@ -24,5 +24,6 @@ private slots:
     void unary_operation_button_released();
     void binary_operation_button_released();
     void on_pushBotton_equalTo_released();
+    void on_pushButton_clear_released();
 };
 #endif // CALC_H
