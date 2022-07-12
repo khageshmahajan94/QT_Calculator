@@ -1,8 +1,11 @@
 #include "calc.h"
 #include "./ui_calc.h"
-
+#include <QDebug>
 double firstNum;
 bool userIsTypingSecondNum = false;
+QString label_1_disp = "";
+QString after_equal;
+
 
 Calc::Calc(QWidget *parent)
     : QMainWindow(parent)
@@ -50,33 +53,38 @@ void Calc::digit_pressed()
     double labelNumber;
     QString newLabel;
 
+
+
     if((ui->pushButton_addition->isChecked() || ui->pushButton_subtract->isChecked() ||
             ui->pushButton_multiply->isChecked() || ui->pushButton_division->isChecked()) && !userIsTypingSecondNum)
     {
         labelNumber = (button->text()).toDouble();
         userIsTypingSecondNum = true;
         newLabel = QString::number(labelNumber, 'g', 15);
+
     }
     else
     {
 
-        if(ui->label_1->text().contains('.') && button->text() == "0")
+        if(ui->label_2->text().contains('.') && button->text() == "0")
         {
-            newLabel = ui->label_1->text() + button->text();
-            //newLabel = ui->label_2->text() + button->text();
+            //newLabel = ui->label_1->text() + button->text();
+            newLabel = ui->label_2->text() + button->text();
 
         }
         else
         {
-            labelNumber = (ui->label_1->text() + button->text()).toDouble();
-            //labelNumber = (ui->label_2->text() + button->text()).toDouble();
-
+            //labelNumber = (ui->label_1->text() + button->text()).toDouble();
+            labelNumber = (ui->label_2->text() + button->text()).toDouble();
             newLabel = QString::number(labelNumber, 'g', 15);
+
         }
 
     }
 
-    ui->label_1->setText(newLabel);
+    after_equal = label_1_disp +" "+ newLabel;
+    ui->label_1->setText(after_equal);
+
     ui->label_2->setText(newLabel);
 
 }
@@ -97,21 +105,19 @@ void Calc::unary_operation_button_released()
     QPushButton* button = (QPushButton*) sender();
     if(button->text() == "+/-")
     {
-        labelNumber = ui->label_1->text().toDouble();
+        labelNumber = ui->label_2->text().toDouble();
 
         labelNumber = labelNumber * (-1);
         newLabel = QString::number(labelNumber, 'g', 15);
-        ui->label_1->setText(newLabel);
-        //ui->label_1->setText(newLabel);
-
+        ui->label_2->setText(newLabel);
     }
     if(button->text() == '%')
     {
-        labelNumber = ui->label_1->text().toDouble();
+        labelNumber = ui->label_2->text().toDouble();
 
         labelNumber = labelNumber * 0.01;
         newLabel = QString::number(labelNumber, 'g', 15);
-        ui->label_1->setText(newLabel);
+        ui->label_2->setText(newLabel);
 
     }
 }
@@ -120,8 +126,11 @@ void Calc::binary_operation_button_released()
 {
     QPushButton* button = (QPushButton*) sender();
 
-    firstNum = ui->label_1->text().toDouble();
+    //firstNum = ui->label_1->text().toDouble();
+    firstNum = ui->label_2->text().toDouble();
+    label_1_disp = QString::number(firstNum, 'g', 15) + " " + button->text();
 
+    ui->label_1->setText(label_1_disp);
 
     button->setChecked(true);
 }
@@ -130,7 +139,8 @@ void Calc::on_pushBotton_equalTo_released()
 {
     double labelNumber, secondNum;
     QString newLabel;
-    secondNum = ui->label_1->text().toDouble();
+    //secondNum = ui->label_1->text().toDouble();
+    secondNum = ui->label_2->text().toDouble();
 
     if(ui->pushButton_addition->isChecked())
     {
@@ -173,7 +183,7 @@ void Calc::on_pushBotton_equalTo_released()
 
         ui->pushButton_addition->setChecked(false);
     }
-
+    ui->label_1->setText(after_equal + " " + "=");
     userIsTypingSecondNum = false;
 }
 
