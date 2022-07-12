@@ -59,18 +59,26 @@ void Calc::digit_pressed()
     }
     else
     {
+
         if(ui->label_1->text().contains('.') && button->text() == "0")
         {
             newLabel = ui->label_1->text() + button->text();
+            //newLabel = ui->label_2->text() + button->text();
+
         }
         else
         {
             labelNumber = (ui->label_1->text() + button->text()).toDouble();
+            //labelNumber = (ui->label_2->text() + button->text()).toDouble();
+
             newLabel = QString::number(labelNumber, 'g', 15);
         }
 
     }
+
     ui->label_1->setText(newLabel);
+    ui->label_2->setText(newLabel);
+
 }
 
 
@@ -90,16 +98,21 @@ void Calc::unary_operation_button_released()
     if(button->text() == "+/-")
     {
         labelNumber = ui->label_1->text().toDouble();
+
         labelNumber = labelNumber * (-1);
         newLabel = QString::number(labelNumber, 'g', 15);
         ui->label_1->setText(newLabel);
+        //ui->label_1->setText(newLabel);
+
     }
     if(button->text() == '%')
     {
         labelNumber = ui->label_1->text().toDouble();
+
         labelNumber = labelNumber * 0.01;
         newLabel = QString::number(labelNumber, 'g', 15);
         ui->label_1->setText(newLabel);
+
     }
 }
 
@@ -109,6 +122,7 @@ void Calc::binary_operation_button_released()
 
     firstNum = ui->label_1->text().toDouble();
 
+
     button->setChecked(true);
 }
 
@@ -117,25 +131,29 @@ void Calc::on_pushBotton_equalTo_released()
     double labelNumber, secondNum;
     QString newLabel;
     secondNum = ui->label_1->text().toDouble();
+
     if(ui->pushButton_addition->isChecked())
     {
         labelNumber = firstNum + secondNum;
         newLabel = QString::number(labelNumber, 'g', 15);
-        ui->label_1->setText(newLabel);
+        //ui->label_1->setText(newLabel);
+        ui->label_2->setText(newLabel);
         ui->pushButton_addition->setChecked(false);
     }
     if(ui->pushButton_subtract->isChecked())
     {
         labelNumber = firstNum - secondNum;
         newLabel = QString::number(labelNumber, 'g', 15);
-        ui->label_1->setText(newLabel);
+        //ui->label_1->setText(newLabel);
+        ui->label_2->setText(newLabel);
         ui->pushButton_addition->setChecked(false);
     }
     if(ui->pushButton_multiply->isChecked())
     {
         labelNumber = firstNum * secondNum;
         newLabel = QString::number(labelNumber, 'g', 15);
-        ui->label_1->setText(newLabel);
+        //ui->label_1->setText(newLabel);
+        ui->label_2->setText(newLabel);
         ui->pushButton_addition->setChecked(false);
     }
     if(ui->pushButton_division->isChecked())
@@ -144,11 +162,13 @@ void Calc::on_pushBotton_equalTo_released()
         {
             labelNumber = firstNum / secondNum;
             newLabel = QString::number(labelNumber, 'g', 15);
-            ui->label_1->setText(newLabel);
+            //ui->label_1->setText(newLabel);
+            ui->label_2->setText(newLabel);
         }
         else
         {
-            ui->label_1->setText("Cannot Divide By Zero");
+            //ui->label_1->setText("Cannot Divide By Zero");
+            ui->label_2->setText("Cannot Divide By Zero");
         }
 
         ui->pushButton_addition->setChecked(false);
@@ -170,5 +190,6 @@ void Calc::on_pushButton_clear_released()
     userIsTypingSecondNum = false;
 
     ui->label_1->setText("0");
+    ui->label_2->setText("0");
 }
 
