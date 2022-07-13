@@ -198,7 +198,8 @@ void Calc::on_pushButton_clear_released()
     ui->pushButton_division->setChecked(false);
 
     userIsTypingSecondNum = false;
-
+    label_1_disp = "";
+    after_equal = "";
     ui->label_1->setText("0");
     ui->label_2->setText("0");
 }
